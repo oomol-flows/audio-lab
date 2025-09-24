@@ -1,0 +1,50 @@
+inputs_def:
+  - handle: content
+    description: "Text content to be converted into speech"
+    json_schema:
+      type: string
+      ui:widget: text
+  - handle: file_path
+    description: "Directory path where the generated audio file will be saved"
+    json_schema:
+      type: string
+      ui:widget: dir
+    value: /oomol-driver/oomol-storage
+    nullable: false
+  - handle: timbre
+    description: "Voice timbre selection for speech generation"
+    json_schema:
+      enum:
+        - anna
+        - alex
+        - bella
+      ui:options:
+        labels:
+          - anna
+          - alex
+          - bella
+    value: anna
+  - group: Optional
+  - handle: name
+    description: "Custom filename for the generated audio (optional)"
+    json_schema:
+      type: string
+    value:
+    nullable: true
+outputs_def:
+  - handle: audio_address
+    description: "File path of the generated audio file"
+    json_schema:
+      type: string
+      ui:widget: file
+ui:
+  default_width: 450
+executor:
+  name: python
+  options:
+    spawn: false
+    entry: main.py
+title: Text To Audio
+icon: ":carbon:mobile-audio:"
+description: "Converts written text into natural-sounding speech audio using
+  AI-powered text-to-speech synthesis with multiple voice options"

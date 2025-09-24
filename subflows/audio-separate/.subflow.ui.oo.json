@@ -1,0 +1,48 @@
+{
+  "nodes": {
+    "audio-separate#1": {
+      "rfNode": {
+        "position": {
+          "x": 486,
+          "y": 41.5
+        }
+      }
+    },
+    "url-download-to-path#2": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 972,
+          "y": 41.5
+        }
+      }
+    },
+    "audio_preview#2": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 1505.2511520737328,
+          "y": -179.2479838709678
+        }
+      }
+    }
+  },
+  "pseudoNodes": {
+    "input": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 100
+        }
+      }
+    },
+    "output": {
+      "rfNode": {
+        "position": {
+          "x": 1505.2511520737328,
+          "y": 275.5
+        }
+      }
+    }
+  }
+}

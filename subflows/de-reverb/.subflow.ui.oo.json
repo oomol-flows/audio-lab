@@ -1,0 +1,48 @@
+{
+  "nodes": {
+    "de-reverb#1": {
+      "rfNode": {
+        "position": {
+          "x": 486,
+          "y": 41.5
+        }
+      }
+    },
+    "url-download-to-path#4": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 972,
+          "y": 41.5
+        }
+      }
+    },
+    "audio_preview#3": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 1488,
+          "y": 0
+        }
+      }
+    }
+  },
+  "pseudoNodes": {
+    "input": {
+      "rfNode": {
+        "position": {
+          "x": 0,
+          "y": 100
+        }
+      }
+    },
+    "output": {
+      "rfNode": {
+        "position": {
+          "x": 1503,
+          "y": 189
+        }
+      }
+    }
+  }
+}

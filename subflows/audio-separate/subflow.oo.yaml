@@ -1,0 +1,50 @@
+nodes:
+  - node_id: audio-separate#1
+    task: self::audio-separate-block
+    inputs_from:
+      - handle: file
+        value: /oomol-driver/oomol-storage/tuanzi_test.mp3
+        from_flow:
+          - input_handle: file
+    title: 音频分离
+    icon: ":carbon:music:"
+  - node_id: url-download-to-path#2
+    title: "Url Download To Path #2"
+    inputs_from:
+      - handle: url
+        from_node:
+          - node_id: audio-separate#1
+            output_handle: download_url
+    task: read-file::url-download-to-path
+  - node_id: audio_preview#2
+    title: "Audio preview #2"
+    inputs_from:
+      - handle: audio_path
+        from_node:
+          - node_id: url-download-to-path#2
+            output_handle: address
+    task: oomol-preview::audio_preview
+title: Audio separate
+description: "Complete workflow for audio separation with preview - separates
+  mixed audio into individual components and provides instant audio preview"
+inputs_def:
+  - handle: file
+    description: "Audio file to be separated into individual components"
+    json_schema:
+      type: string
+      ui:widget: file
+    nullable: false
+    executor_name: nodejs
+outputs_def:
+  - handle: address
+    json_schema:
+      type: string
+      ui:widget: file
+    nullable: false
+    description: "File path of the separated audio components with preview capability"
+    executor_name: nodejs
+outputs_from:
+  - handle: address
+    from_node:
+      - node_id: url-download-to-path#2
+        output_handle: address

@@ -1,0 +1,31 @@
+{
+  "nodes": {
+    "text-to-audio#1": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 675.3470653312447,
+          "y": 822.2037407908223
+        }
+      }
+    },
+    "audio_preview#1": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 1243.8547585644244,
+          "y": 1143.3076635701668
+        }
+      }
+    },
+    "speech-to-text#1": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 694.8734205298356,
+          "y": 1608.3072958581308
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+inputs_def:
+  - handle: audio
+    description: "Audio file containing speech to be transcribed"
+    json_schema:
+      type: string
+      ui:widget: file
+outputs_def:
+  - handle: text
+    description: "Transcribed text from the audio input"
+    json_schema:
+      type: string
+ui:
+  default_width: 450
+executor:
+  name: python
+  options:
+    spawn: false
+    entry: main.py
+title: Speech To Text
+icon: ":carbon:ibm-watson-speech-to-text:"
+description: "Converts spoken audio into accurate text transcriptions using
+  advanced AI speech recognition technology, supporting multiple languages and
+  audio formats"

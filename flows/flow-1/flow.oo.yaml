@@ -1,0 +1,27 @@
+nodes:
+  - node_id: text-to-audio#1
+    title: "Text To Audio #1"
+    inputs_from:
+      - handle: content
+        value: 你好我是毛毛，是一只威尔士柯基
+      - handle: file_path
+        value: /oomol-driver/oomol-storage
+      - handle: timbre
+        value: anna
+      - handle: name
+        value: null
+    task: self::text-to-audio
+  - node_id: audio_preview#1
+    title: "Audio preview #1"
+    inputs_from:
+      - handle: audio_path
+        from_node:
+          - node_id: text-to-audio#1
+            output_handle: audio_address
+    task: oomol-preview::audio_preview
+  - node_id: speech-to-text#1
+    title: "Speech To Text #1"
+    inputs_from:
+      - handle: audio
+        value: /oomol-driver/oomol-storage/1758694056.mp3
+    task: self::speech-to-text

@@ -1,0 +1,48 @@
+# tasks/lossless-pitch/task.oo.yaml
+
+inputs_def:
+  - handle: file
+    description: "Audio file to be pitch-adjusted"
+    json_schema:
+      type: string
+      ui:widget: file
+  - handle: pitch
+    description: "Pitch adjustment in semitones (-10 to +10)"
+    json_schema:
+      type: integer
+      minimum: -10
+      maximum: 10
+      default: 0
+      nullable: false
+  - handle: fp
+    description: "Enable formant preservation to maintain voice characteristics"
+    json_schema:
+      type: boolean
+      default: true
+      nullable: false
+  - handle: tp
+    description: "Enable timing preservation to maintain original tempo"
+    json_schema:
+      type: boolean
+      default: true
+      nullable: false
+
+outputs_def:
+  - handle: download_url
+    description: "Download URL for the pitch-adjusted audio file"
+    json_schema:
+      type: string
+      nullable: false
+
+executor:
+  name: nodejs
+  options:
+    entry: index.ts
+    spawn: false
+
+title: "Lossless pitch block"
+description: "Changes the pitch of audio files while preserving quality and
+  maintaining natural sound characteristics through advanced formant and timing
+  preservation"
+icon: ":carbon:music:"
+private: true

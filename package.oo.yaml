@@ -1,0 +1,14 @@
+version: 0.0.1
+scripts:
+  bootstrap: |
+    npm install
+    poetry install --no-root
+dependencies:
+  read-file: 0.0.10
+  oomol-preview: 0.1.0
+name: audio-lab
+repository: https://github.com/oomol-flows/audio-lab.git
+displayName: "%audio-lab%"
+description: "%key%"
+icon: ./icon.png
+releaseNotes: init
