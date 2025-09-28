@@ -7,7 +7,7 @@ nodes:
       - handle: file_path
         value: /oomol-driver/oomol-storage
       - handle: timbre
-        value: anna
+        value: zh_female_gaolengyujie_emo_v2_mars_bigtts
       - handle: name
         value: null
     task: self::text-to-audio
@@ -25,3 +25,19 @@ nodes:
       - handle: file
         value: /oomol-driver/oomol-storage/audio.mp3
     subflow: self::audio-separate
+  - node_id: speech-to-text#1
+    title: "Speech To Text #1"
+      - handle: audio
+        value: /oomol-driver/oomol-storage/1758694056.mp3
+        from_node:
+          - node_id: text-to-audio#1
+            output_handle: audio_address
+    task: self::speech-to-text
+  - node_id: markdown_text_preview#1
+    title: "Markdown preview #1"
+    inputs_from:
+      - handle: text
+        from_node:
+          - node_id: speech-to-text#1
+            output_handle: text
+    task: oomol-preview::markdown_text_preview
