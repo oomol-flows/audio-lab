@@ -1,9 +1,8 @@
 inputs_def:
-  - handle: audio
-    description: "Audio file containing speech to be transcribed"
+  - handle: audio_url
+    description: "Remote URL of the voice audio file"
     json_schema:
       type: string
-      ui:widget: file
 outputs_def:
   - handle: text
     description: "Transcribed text from the audio input"

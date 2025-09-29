@@ -6,6 +6,7 @@ scripts:
 dependencies:
   read-file: 0.0.10
   oomol-preview: 0.1.0
+  upload-to-cloud: 0.0.3
 name: audio-lab
 repository: https://github.com/oomol-flows/audio-lab.git
 displayName: "%audio-lab%"

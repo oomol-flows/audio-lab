@@ -27,11 +27,12 @@ nodes:
     subflow: self::audio-separate
   - node_id: speech-to-text#1
     title: "Speech To Text #1"
-      - handle: audio
+    inputs_from:
+      - handle: audio_url
         value: /oomol-driver/oomol-storage/1758694056.mp3
         from_node:
-          - node_id: text-to-audio#1
-            output_handle: audio_address
+          - node_id: upload-to-cloud#1
+            output_handle: remote_url
     task: self::speech-to-text
   - node_id: markdown_text_preview#1
     title: "Markdown preview #1"
@@ -41,3 +42,11 @@ nodes:
           - node_id: speech-to-text#1
             output_handle: text
     task: oomol-preview::markdown_text_preview
+  - node_id: upload-to-cloud#1
+    title: "Upload File to Cloud #1"
+    inputs_from:
+      - handle: file
+        from_node:
+          - node_id: text-to-audio#1
+            output_handle: audio_address
+    task: upload-to-cloud::upload-to-cloud
