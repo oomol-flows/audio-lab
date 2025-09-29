@@ -8,7 +8,7 @@ import typing
 class Inputs(typing.TypedDict):
     audio_url: str
 class Outputs(typing.TypedDict):
-    text: typing.NotRequired[str]
+    text: str
 #endregion
 
 def get_audio_format(audio_url: str) -> str:

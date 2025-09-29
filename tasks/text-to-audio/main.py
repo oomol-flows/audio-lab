@@ -9,7 +9,7 @@ class Inputs(typing.TypedDict):
     timbre: typing.Literal["zh_male_lengkugege_emo_v2_mars_bigtts", "zh_female_tianxinxiaomei_emo_v2_mars_bigtts", "zh_female_gaolengyujie_emo_v2_mars_bigtts", "zh_male_jingqiangkanye_emo_mars_bigtts", "ICL_zh_female_wenrounvshen_239eff5e8ffa_tob"]
     name: str | None
 class Outputs(typing.TypedDict):
-    audio_address: typing.NotRequired[str]
+    audio_address: str
 #endregion
 
 # voice 音色文档地址: https://www.volcengine.com/docs/6561/1257544
