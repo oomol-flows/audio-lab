@@ -44,7 +44,7 @@ async function startAudioSeparate(filePath: string, apiKey: string): Promise<str
       'Authorization': `Bearer ${apiKey}`,
     },
     body: formData as any,
-    signal: AbortSignal.timeout(30000)
+    signal: AbortSignal.timeout(300000) // 5 minutes
   });
 
   if (!response.ok) {

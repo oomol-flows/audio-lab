@@ -9,7 +9,7 @@ class Inputs(typing.TypedDict):
     timbre: typing.Literal["anna", "alex", "bella"]
     name: str | None
 class Outputs(typing.TypedDict):
-    audio_address: str
+    audio_address: typing.NotRequired[str]
 #endregion
 
 def main(params: Inputs, context: Context) -> Outputs:

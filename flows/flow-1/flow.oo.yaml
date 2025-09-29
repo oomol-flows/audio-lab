@@ -19,9 +19,9 @@ nodes:
           - node_id: text-to-audio#1
             output_handle: audio_address
     task: oomol-preview::audio_preview
-  - node_id: speech-to-text#1
-    title: "Speech To Text #1"
+  - node_id: audio-separate#1
+    title: "Audio separate #1"
     inputs_from:
-      - handle: audio
-        value: /oomol-driver/oomol-storage/1758694056.mp3
-    task: self::speech-to-text
+      - handle: file
+        value: /oomol-driver/oomol-storage/audio.mp3
+    subflow: self::audio-separate
