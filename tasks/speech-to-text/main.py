@@ -1,6 +1,4 @@
 from oocana import Context
-from openai import OpenAI, base_url
-from typing import Any
 import requests
 import time
 import os
@@ -68,16 +66,23 @@ def main(params: Inputs, context: Context) -> Outputs:
 
     
     query_url = f"{base_url}/api/tasks/v1/stt/query"
-    max_attempts = 60
-    attempt = 0
 
-    while attempt < max_attempts:
-        attempt += 1
+    while True:
         query_params = {"task_id": task_id}
         query_response = requests.get(query_url, headers=headers, params=query_params)
         query_result = query_response.json()
 
-        print(f"Query result (attempt {attempt}): {query_result}")
+        print(f"Query result: {query_result}")
+
+        # Check if success field is False and handle error
+        # Skip validation if message contains "Start Processing" due to backend bug
+        if query_result.get("success") is False:
+            error_msg = query_result.get("message", "Unknown error")
+            if "Start Processing" in error_msg:
+                print(f"Backend processing started, skipping success validation: {error_msg}")
+            else:
+                print(f"Error: {error_msg}")
+                raise Exception(f"STT query failed: {error_msg}")
 
         if query_response.status_code == 200 and query_result.get("success"):
             data = query_result.get("data", {})
@@ -102,7 +107,4 @@ def main(params: Inputs, context: Context) -> Outputs:
                 continue
 
         else:
-            print(f"Query failed with status {query_response.status_code}: {query_result}")
             time.sleep(2)
-
-    raise Exception(f"STT task timed out after {max_attempts} attempts")

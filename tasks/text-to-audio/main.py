@@ -1,9 +1,6 @@
 from oocana import Context
-from openai import OpenAI, base_url
-from typing import Any
 import requests
 import time
-import json
 #region generated meta
 import typing
 class Inputs(typing.TypedDict):
@@ -56,7 +53,6 @@ def main(params: Inputs, context: Context) -> Outputs:
     task_id = submit_result["data"]["task_id"]
     print(f"TTS task submitted, task_id: {task_id}")
 
-    # Poll for task completion
     query_url = f"{base_url}/api/tasks/v1/tts/query"
 
     while True:
