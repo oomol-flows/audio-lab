@@ -74,8 +74,10 @@ def main(params: Inputs, context: Context) -> Outputs:
         query_response = requests.get(query_url, headers=headers, params=query_params)
         query_result = query_response.json()
 
-        print(f"Query result: {query_result}")
-
+        print(
+            f"Query status: success={query_result.get('success')} "
+            f"task_status={query_result.get('data', {}).get('task_status')}"
+        )
         # Check if success field is False and handle error
         # Skip validation if message contains "Start Processing" due to backend bug
         if query_result.get("success") is False:
