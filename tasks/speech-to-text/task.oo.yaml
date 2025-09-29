@@ -3,6 +3,8 @@ inputs_def:
     description: "Remote URL of the voice audio file"
     json_schema:
       type: string
+      format: uri
+      pattern: ^https?://.+
 outputs_def:
   - handle: text
     description: "Transcribed text from the audio input"

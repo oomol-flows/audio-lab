@@ -1,6 +1,46 @@
 from oocana import Context
 import requests
 import time
+
+def make_http_request(method: str, url: str, headers: dict, json_data: dict = None, params: dict = None, timeout: int = 30):
+    """
+    Make HTTP request with simple retry logic for timeouts and 50x errors
+    """
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            if method.upper() == "POST":
+                response = requests.post(url, headers=headers, json=json_data, timeout=timeout)
+            else:
+                response = requests.get(url, headers=headers, params=params, timeout=timeout)
+
+            # Check for 50x server errors (retryable)
+            if 500 <= response.status_code < 600:
+                print(f"Server error {response.status_code}, attempt {attempt + 1}/{max_retries}")
+                if attempt < max_retries - 1:
+                    time.sleep(2)
+                    continue
+                else:
+                    response.raise_for_status()
+
+            return response
+
+        except requests.exceptions.Timeout:
+            print(f"Request timeout, attempt {attempt + 1}/{max_retries}")
+            if attempt < max_retries - 1:
+                time.sleep(2)
+                continue
+            else:
+                raise
+        except requests.exceptions.ConnectionError:
+            print(f"Connection error, attempt {attempt + 1}/{max_retries}")
+            if attempt < max_retries - 1:
+                time.sleep(2)
+                continue
+            else:
+                raise
+
+    raise Exception("Max retries exceeded")
 #region generated meta
 import typing
 class Inputs(typing.TypedDict):
@@ -42,7 +82,7 @@ def main(params: Inputs, context: Context) -> Outputs:
     }
 
     print(f"Submitting TTS task to {submit_url}")
-    submit_response = requests.post(submit_url, headers=headers, json=submit_data)
+    submit_response = make_http_request("POST", submit_url, headers=headers, json_data=submit_data)
     submit_result = submit_response.json()
 
     if not submit_result.get("success"):
@@ -57,7 +97,7 @@ def main(params: Inputs, context: Context) -> Outputs:
 
     while True:
         query_params = {"task_id": task_id}
-        query_response = requests.get(query_url, headers=headers, params=query_params)
+        query_response = make_http_request("GET", query_url, headers=headers, params=query_params)
         query_result = query_response.json()
 
         print(f"Query result: {query_result}")
@@ -71,7 +111,7 @@ def main(params: Inputs, context: Context) -> Outputs:
                 audio_url = data.get("audio_url")
                 if audio_url:
                     print(f"Downloading audio from {audio_url}")
-                    audio_response = requests.get(audio_url)
+                    audio_response = make_http_request("GET", audio_url, headers={})
 
                     if audio_response.status_code == 200:
                         with open(speech_file_path, 'wb') as f:
