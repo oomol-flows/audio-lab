@@ -33,10 +33,11 @@ def main(params: Inputs, context: Context) -> Outputs:
     """
     Main function: Handles audio to text transcription task
     """
-    base_url = context.oomol_llm_env.get("base_url")
+    base_url = (context.oomol_llm_env.get("base_url") or "").rstrip("/")
     api_key = context.oomol_llm_env.get("api_key")
     audio_url = params["audio_url"]
-
+    if not base_url or not api_key:
+        raise ValueError("Missing base_url or api_key in context.oomol_llm_env")
     print(f"Processing audio URL: {audio_url}")
 
     audio_format = get_audio_format(audio_url)
