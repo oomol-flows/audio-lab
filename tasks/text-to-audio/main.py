@@ -111,15 +111,16 @@ def main(params: Inputs, context: Context) -> Outputs:
                 audio_url = data.get("audio_url")
                 if audio_url:
                     print(f"Downloading audio from {audio_url}")
-                    audio_response = make_http_request("GET", audio_url, headers={})
-
-                    if audio_response.status_code == 200:
+                    with requests.get(
+                        audio_url, stream=True, timeout=(CONNECT_TIMEOUT, READ_TIMEOUT)
+                    ) as audio_response:
+                        audio_response.raise_for_status()
                         with open(speech_file_path, 'wb') as f:
-                            f.write(audio_response.content)
-                        print(f"Audio saved to {speech_file_path}")
-                        return {"audio_address": speech_file_path}
-                    else:
-                        raise Exception(f"Failed to download audio file: {audio_response.status_code}")
+                            for chunk in audio_response.iter_content(chunk_size=8192):
+                                if chunk:
+                                    f.write(chunk)
+                    print(f"Audio saved to {speech_file_path}")
+                    return {"audio_address": speech_file_path}
                 else:
                     raise Exception("No audio_url in completed task result")
 
