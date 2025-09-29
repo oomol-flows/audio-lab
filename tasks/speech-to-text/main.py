@@ -96,7 +96,7 @@ def main(params: Inputs, context: Context) -> Outputs:
             if task_status == 2:
                 text = data.get("text")
                 if text:
-                    print(f"STT task completed successfully")
+                    print("STT task completed successfully")
                     return {"text": text}
                 else:
                     raise Exception("No text in completed task result")
