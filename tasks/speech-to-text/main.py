@@ -13,9 +13,10 @@ class Outputs(typing.TypedDict):
 
 def get_audio_format(audio_url: str) -> str:
     """Extract audio format from audio URL"""
-    parsed_url = os.path.splitext(audio_url)
-    extension = parsed_url[1].lower().lstrip('.')
-
+    from urllib.parse import urlparse
+    path = urlparse(audio_url).path
+    _, ext = os.path.splitext(path)
+    extension = ext.lower().lstrip('.')
     # Map common audio extensions
     format_map = {
         'mp3': 'mp3',
