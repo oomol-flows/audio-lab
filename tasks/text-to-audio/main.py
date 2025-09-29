@@ -2,7 +2,11 @@ from oocana import Context
 import requests
 import time
 
-def make_http_request(method: str, url: str, headers: dict, json_data: dict = None, params: dict = None, timeout: int = 30):
+# Timeout constants for HTTP requests (in seconds)
+CONNECT_TIMEOUT = 10
+READ_TIMEOUT = 30
+
+def make_http_request(method: str, url: str, headers: dict, json_data: dict | None = None, params: dict | None = None, timeout: int = 30):
     """
     Make HTTP request with simple retry logic for timeouts and 50x errors
     """

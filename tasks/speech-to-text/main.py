@@ -3,7 +3,7 @@ import requests
 import time
 import os
 
-def make_http_request(method: str, url: str, headers: dict, json_data: dict = None, params: dict = None, timeout: int = 30):
+def make_http_request(method: str, url: str, headers: dict, json_data: dict | None = None, params: dict | None = None, timeout: int = 30):
     """
     Make HTTP request with simple retry logic for timeouts and 50x errors
     """
@@ -18,6 +18,16 @@ def make_http_request(method: str, url: str, headers: dict, json_data: dict = No
             # Check for 50x server errors (retryable)
             if 500 <= response.status_code < 600:
                 print(f"Server error {response.status_code}, attempt {attempt + 1}/{max_retries}")
+                # Special handling for "Start Processing" error in 500 responses
+                try:
+                    result = response.json()
+                    error_msg = result.get("message", "")
+                    if "Start Processing" in error_msg:
+                        print(f"Backend processing started, treating as success: {error_msg}")
+                        return response
+                except:
+                    pass  # If JSON parsing fails, continue with normal retry logic
+
                 if attempt < max_retries - 1:
                     time.sleep(2)
                     continue
