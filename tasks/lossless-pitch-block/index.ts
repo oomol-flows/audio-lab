@@ -70,7 +70,7 @@ export default async function(
           'Authorization': `Bearer ${context.OOMOL_LLM_ENV.apiKey}`,
         },
         body: formData as any,
-        signal: AbortSignal.timeout(30000)
+        signal: AbortSignal.timeout(300000)
       }
     );
 

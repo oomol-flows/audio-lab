@@ -43,7 +43,7 @@ async function startDeReverb(filePath: string, apiKey: string): Promise<string> 
       'Authorization': `Bearer ${apiKey}`,
     },
     body: formData as any,
-    signal: AbortSignal.timeout(30000)
+    signal: AbortSignal.timeout(300000)
   });
 
   if (!response.ok) {

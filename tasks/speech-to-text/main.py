@@ -6,7 +6,7 @@ import typing
 class Inputs(typing.TypedDict):
     audio: str
 class Outputs(typing.TypedDict):
-    text: str
+    text: typing.NotRequired[str]
 #endregion
 
 def main(params: Inputs, context: Context) -> Outputs:
