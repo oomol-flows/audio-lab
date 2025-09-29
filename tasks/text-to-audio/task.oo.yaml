@@ -15,15 +15,19 @@ inputs_def:
     description: "Voice timbre selection for speech generation"
     json_schema:
       enum:
-        - anna
-        - alex
-        - bella
+        - zh_male_lengkugege_emo_v2_mars_bigtts
+        - zh_female_tianxinxiaomei_emo_v2_mars_bigtts
+        - zh_female_gaolengyujie_emo_v2_mars_bigtts
+        - zh_male_jingqiangkanye_emo_mars_bigtts
+        - ICL_zh_female_wenrounvshen_239eff5e8ffa_tob
       ui:options:
         labels:
-          - anna
-          - alex
-          - bella
-    value: anna
+          - 冷酷哥哥（多情感）
+          - 甜心小美（多情感）
+          - 高冷御姐（多情感）
+          - 京腔侃爷（多情感）
+          - 温柔女神
+    value: ICL_zh_female_wenrounvshen_239eff5e8ffa_tob
   - group: Optional
   - handle: name
     description: "Custom filename for the generated audio (optional)"
