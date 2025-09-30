@@ -15,8 +15,9 @@ executor:
   options:
     spawn: false
     entry: main.py
-title: Speech To Text
-icon: ":carbon:ibm-watson-speech-to-text:"
+title: Speech To Text Core
+icon: ":carbon:ibm-elo-engineering-insights:"
 description: "Converts spoken audio into accurate text transcriptions using
   advanced AI speech recognition technology, supporting multiple languages and
   audio formats"
+private: true

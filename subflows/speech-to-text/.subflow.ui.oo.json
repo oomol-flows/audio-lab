@@ -1,0 +1,39 @@
+{
+  "nodes": {
+    "speech-to-text#2": {
+      "contentWidth": 450,
+      "rfNode": {
+        "position": {
+          "x": 972,
+          "y": 0
+        }
+      }
+    },
+    "upload-to-cloud#2": {
+      "rfNode": {
+        "position": {
+          "x": 428.69135933010034,
+          "y": -154.5596672612443
+        }
+      }
+    }
+  },
+  "pseudoNodes": {
+    "input": {
+      "rfNode": {
+        "position": {
+          "x": -239.13102478462815,
+          "y": -85.50139552111119
+        }
+      }
+    },
+    "output": {
+      "rfNode": {
+        "position": {
+          "x": 1488,
+          "y": 58.5
+        }
+      }
+    }
+  }
+}

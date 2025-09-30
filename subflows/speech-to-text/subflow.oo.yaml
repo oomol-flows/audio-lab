@@ -1,0 +1,44 @@
+nodes:
+  - node_id: speech-to-text#2
+    title: "Speech To Text #2"
+    inputs_from:
+      - handle: audio_url
+        value: /oomol-driver/oomol-storage/1758694056.mp3
+        from_node:
+          - node_id: upload-to-cloud#2
+            output_handle: remote_url
+    task: self::speech-to-text-core
+  - node_id: upload-to-cloud#2
+    title: "Upload File to Cloud #2"
+    inputs_from:
+      - handle: file
+        from_flow:
+          - input_handle: file
+        from_node:
+          []
+    task: upload-to-cloud::upload-to-cloud
+inputs_def:
+  - handle: file
+    description: Audio file to be transcribed into text
+    json_schema:
+      type: string
+      ui:widget: file
+    nullable: false
+    executor_name: nodejs
+outputs_def:
+  - handle: text
+    json_schema:
+      type: string
+    nullable: false
+    description: Transcribed text from the audio input
+    executor_name: python
+outputs_from:
+  - handle: text
+    from_node:
+      - node_id: speech-to-text#2
+        output_handle: text
+title: Speech To Text
+icon: ":carbon:ibm-watson-speech-to-text:"
+description: "This subflow converts audio files to text using speech recognition
+  technology. It uploads the audio file to cloud storage and processes it
+  through speech-to-text conversion."

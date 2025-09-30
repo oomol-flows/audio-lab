@@ -27,7 +27,7 @@ nodes:
         from_node:
           - node_id: upload-to-cloud#1
             output_handle: remote_url
-    task: self::speech-to-text
+    task: self::speech-to-text-core
   - node_id: markdown_text_preview#1
     title: "Markdown preview #1"
     inputs_from:
