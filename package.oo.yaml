@@ -1,10 +1,9 @@
-version: 0.0.3
+version: 0.0.4
 scripts:
   bootstrap: |
     npm install
     poetry install --no-root
 dependencies:
-  read-file: 0.0.10
   oomol-preview: 0.1.0
   upload-to-cloud: 0.0.3
 name: audio-lab
