@@ -1,6 +1,6 @@
 nodes:
   - node_id: text-to-audio#1
-    title: "Text To Audio #1"
+    title: "%text-to-audio-1%"
     inputs_from:
       - handle: content
         value: 你好我是毛毛，是一只威尔士柯基
@@ -12,7 +12,7 @@ nodes:
         value: null
     task: self::text-to-audio
   - node_id: audio_preview#1
-    title: "Audio preview #1"
+    title: "%audio-preview-1%"
     inputs_from:
       - handle: audio_path
         from_node:
@@ -20,7 +20,7 @@ nodes:
             output_handle: audio_address
     task: oomol-preview::audio_preview
   - node_id: speech-to-text#1
-    title: "Speech To Text #1"
+    title: "%speech-to-text-1%"
     inputs_from:
       - handle: audio_url
         value: /oomol-driver/oomol-storage/1758694056.mp3
@@ -29,7 +29,7 @@ nodes:
             output_handle: remote_url
     task: self::speech-to-text-core
   - node_id: markdown_text_preview#1
-    title: "Markdown preview #1"
+    title: "%markdown-preview-1%"
     inputs_from:
       - handle: text
         from_node:
@@ -37,7 +37,7 @@ nodes:
             output_handle: text
     task: oomol-preview::markdown_text_preview
   - node_id: upload-to-cloud#1
-    title: "Upload File to Cloud #1"
+    title: "%upload-file-to-cloud-1%"
     inputs_from:
       - handle: file
         from_node:

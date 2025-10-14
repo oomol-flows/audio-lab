@@ -1,18 +1,18 @@
 inputs_def:
   - handle: content
-    description: "Text content to be converted into speech"
+    description: "%text-content-to-be-converted-into-speech%"
     json_schema:
       type: string
       ui:widget: text
   - handle: file_path
-    description: "Directory path where the generated audio file will be saved"
+    description: "%directory-path-where-the-generated-audio-file-will-be-saved%"
     json_schema:
       type: string
       ui:widget: dir
     value: /oomol-driver/oomol-storage
     nullable: false
   - handle: timbre
-    description: "Voice timbre selection for speech generation"
+    description: "%voice-timbre-selection-for-speech-generation%"
     json_schema:
       enum:
         - zh_male_lengkugege_emo_v2_mars_bigtts
@@ -30,7 +30,7 @@ inputs_def:
     value: ICL_zh_female_wenrounvshen_239eff5e8ffa_tob
   - group: Optional
   - handle: name
-    description: "Custom filename for the generated audio (optional)"
+    description: "%custom-filename-for-the-generated-audio-optional%"
     json_schema:
       type: string
     value:
@@ -48,7 +48,6 @@ executor:
   options:
     spawn: false
     entry: main.py
-title: Text To Audio
+title: "%text-to-audio%"
 icon: ":carbon:mobile-audio:"
-description: "Converts written text into natural-sounding speech audio using
-  AI-powered text-to-speech synthesis with multiple voice options"
+description: "%converts-written-text-into-natural-sounding-speech-audio-using-a%"

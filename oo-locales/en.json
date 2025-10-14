@@ -1,4 +1,23 @@
 {
   "key": "Audio Lab is an advanced AI-powered audio processing platform that offers professional-grade audio processing features through an intuitive visual workflow interface. Whether you are a content creator, podcast host, musician, or business professional, Audio Lab can help you enhance your audio content using cutting-edge AI technology.",
-  "audio-lab": "Audio Lab"
+  "audio-lab": "Audio Lab",
+  "text-to-audio-1": "Text To Audio #1",
+  "audio-preview-1": "Audio preview #1",
+  "speech-to-text-1": "Speech To Text #1",
+  "markdown-preview-1": "Markdown preview #1",
+  "upload-file-to-cloud-1": "Upload File to Cloud #1",
+  "speech-to-text-core": "Speech To Text Core",
+  "converts-spoken-audio-into-accurate-text-transcriptions-using-ad": "Converts spoken audio into accurate text transcriptions using advanced AI speech recognition technology, supporting multiple languages and audio formats",
+  "remote-url-of-the-voice-audio-file": "Remote URL of the voice audio file",
+  "text-to-audio": "Text To Audio",
+  "converts-written-text-into-natural-sounding-speech-audio-using-a": "Converts written text into natural-sounding speech audio using AI-powered text-to-speech synthesis with multiple voice options",
+  "text-content-to-be-converted-into-speech": "Text content to be converted into speech",
+  "directory-path-where-the-generated-audio-file-will-be-saved": "Directory path where the generated audio file will be saved",
+  "voice-timbre-selection-for-speech-generation": "Voice timbre selection for speech generation",
+  "custom-filename-for-the-generated-audio-optional": "Custom filename for the generated audio (optional)",
+  "speech-to-text": "Speech To Text",
+  "this-subflow-converts-audio-files-to-text-using-speech-recogniti": "This subflow converts audio files to text using speech recognition technology. It uploads the audio file to cloud storage and processes it through speech-to-text conversion.",
+  "audio-file-to-be-transcribed-into-text": "Audio file to be transcribed into text",
+  "speech-to-text-2": "Speech To Text #2",
+  "upload-file-to-cloud-2": "Upload File to Cloud #2"
 }

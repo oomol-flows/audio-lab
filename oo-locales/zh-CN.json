@@ -1,4 +1,23 @@
 {
   "key": "音频实验室是一个先进的AI驱动音频处理平台，通过直观的可视化工作流界面提供专业级音频处理功能。无论您是内容创作者、播客主持人、音乐人还是商务专业人士，音频实验室都能帮助您使用前沿AI技术增强音频内容",
-  "audio-lab": "音频实验室"
+  "audio-lab": "音频实验室",
+  "text-to-audio-1": "文本转音频 #1",
+  "audio-preview-1": "音频预览 #1",
+  "speech-to-text-1": "语音转文字 #1",
+  "markdown-preview-1": "Markdown 预览 #1",
+  "upload-file-to-cloud-1": "上传文件到云端 #1",
+  "speech-to-text-core": "语音转文本核心",
+  "converts-spoken-audio-into-accurate-text-transcriptions-using-ad": "使用先进的人工智能语音识别技术，将语音音频准确转换为文本转录，支持多种语言和音频格式。",
+  "remote-url-of-the-voice-audio-file": "语音音频文件的远程URL",
+  "text-to-audio": "文本转音频",
+  "converts-written-text-into-natural-sounding-speech-audio-using-a": "使用由人工智能驱动的文本转语音合成技术，将书面文本转换为自然流畅的语音音频，并提供多种语音选项。",
+  "text-content-to-be-converted-into-speech": "要转换为语音的文本内容",
+  "directory-path-where-the-generated-audio-file-will-be-saved": "生成的音频文件将被保存的目录路径",
+  "voice-timbre-selection-for-speech-generation": "语音生成的音色选择",
+  "custom-filename-for-the-generated-audio-optional": "为生成的音频自定义文件名（可选）",
+  "speech-to-text": "语音转文字",
+  "this-subflow-converts-audio-files-to-text-using-speech-recogniti": "此子流程使用语音识别技术将音频文件转换为文本。它会将音频文件上传到云存储，并通过语音转文本进行处理。",
+  "audio-file-to-be-transcribed-into-text": "音频文件需转录为文本",
+  "speech-to-text-2": "语音转文字 #2",
+  "upload-file-to-cloud-2": "上传文件到云端 #2"
 }

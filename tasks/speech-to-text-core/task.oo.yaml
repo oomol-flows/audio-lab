@@ -1,6 +1,6 @@
 inputs_def:
   - handle: audio_url
-    description: "Remote URL of the voice audio file"
+    description: "%remote-url-of-the-voice-audio-file%"
     json_schema:
       type: string
 outputs_def:
@@ -15,9 +15,7 @@ executor:
   options:
     spawn: false
     entry: main.py
-title: Speech To Text Core
+title: "%speech-to-text-core%"
 icon: ":carbon:ibm-elo-engineering-insights:"
-description: "Converts spoken audio into accurate text transcriptions using
-  advanced AI speech recognition technology, supporting multiple languages and
-  audio formats"
+description: "%converts-spoken-audio-into-accurate-text-transcriptions-using-ad%"
 private: true
