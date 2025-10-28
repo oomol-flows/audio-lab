@@ -1,11 +1,11 @@
 inputs_def:
   - handle: audio_url
-    description: "%remote-url-of-the-voice-audio-file%"
+    description: "%remote-url-of-the-voice-audio-file-to-transcribe-supports-mp3-wa%"
     json_schema:
       type: string
 outputs_def:
   - handle: text
-    description: "Transcribed text from the audio input"
+    description: "%accurate-text-transcription-of-the-spoken-audio-content-supports%"
     json_schema:
       type: string
 ui:
@@ -15,7 +15,7 @@ executor:
   options:
     spawn: false
     entry: main.py
-title: "%speech-to-text-core%"
-icon: ":carbon:ibm-elo-engineering-insights:"
-description: "%converts-spoken-audio-into-accurate-text-transcriptions-using-ad%"
+title: "%speech-to-text-core2%"
+icon: ":carbon:ibm-watson-speech-to-text:"
+description: "%converts-spoken-audio-into-accurate-text-transcriptions-using-ad2%"
 private: true

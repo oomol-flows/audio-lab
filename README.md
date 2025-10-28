@@ -1,101 +1,78 @@
-# Audio Lab - AI-Powered Audio Processing Toolkit
+<div align=center>
+	<h1>Audio Lab</h1>
+	<p><a href="https://hub.oomol.com/package/audio-lab?open=true" target="_blank"><img src="https://static.oomol.com/assets/button.svg" alt="Open in OOMOL Studio" /></a></p>
+</div>
 
-Audio Lab is an advanced AI-powered audio processing platform that provides professional-grade audio manipulation capabilities through an intuitive visual workflow interface. Whether you're a content creator, podcaster, musician, or business professional, Audio Lab helps you enhance your audio content with cutting-edge AI technology.
+## Overview
 
-## 🎯 What Can You Do With Audio Lab?
+Audio Lab is a comprehensive audio processing toolkit that enables seamless conversion between text and speech. This package provides professional-grade text-to-speech synthesis and speech-to-text transcription capabilities, making it perfect for content creators, accessibility applications, and automated transcription workflows.
 
-Audio Lab transforms complex audio processing tasks into simple, drag-and-drop workflows. Here are the main capabilities:
+## Features
 
-### 🎤 Speech & Voice Processing
-- **Text-to-Speech**: Convert written text into natural-sounding speech with multiple voice options
-- **Speech-to-Text**: Accurately transcribe audio recordings into written text
+### 🎙️ Text to Audio Conversion
+- **Natural Voice Synthesis**: Convert any text into lifelike speech using advanced AI voice technology
+- **Multiple Voice Options**: Choose from 5 distinct Chinese voice personalities:
+  - 冷酷哥哥 (Cool Brother) - Multi-emotional male voice
+  - 甜心小美 (Sweet Little Sister) - Multi-emotional female voice  
+  - 高冷御姐 (Cold Queen) - Multi-emotional sophisticated female voice
+  - 京腔侃爷 (Beijing Dialect Chatty Uncle) - Multi-emotional Beijing accent male voice
+  - 温柔女神 (Gentle Goddess) - Soft female voice
+- **Custom Output**: Specify custom filenames and save locations for generated audio files
+- **MP3 Format**: High-quality audio output in universally compatible MP3 format
 
-### 🔄 Workflow Automation
-- **Visual Workflows**: Create custom audio processing pipelines using drag-and-drop interface
-- **Batch Processing**: Process multiple files efficiently
-- **Real-time Preview**: See and hear results instantly
+### 📝 Speech to Text Transcription
+- **Accurate Transcription**: Convert spoken audio into precise text using advanced speech recognition
+- **Multi-format Support**: Process various audio formats including MP3, WAV, FLAC, M4A, AAC, OGG, and WMA
+- **Automatic Language Detection**: Intelligent language recognition for optimal transcription accuracy
+- **Cloud Integration**: Seamless upload and processing of audio files through cloud storage
 
-## 🏗️ Available Processing Blocks
+## Quick Start
 
-Audio Lab provides these professional-grade processing blocks:
+### Text to Audio Workflow
+1. **Input Your Text**: Enter any text content you want to convert to speech
+2. **Choose Voice**: Select your preferred voice personality from the dropdown menu
+3. **Set Output Location**: Specify where to save the generated audio file
+4. **Generate Audio**: Run the task to create your speech audio file
+5. **Preview Results**: Listen to the generated audio directly in the interface
 
-### 1. **Text-to-Speech Block**
-- **Purpose**: Transform written content into spoken audio
-- **Input**: Text content, voice selection (Anna, Alex, Bella)
-- **Output**: High-quality audio file
-- **Use Cases**: Voiceovers, audiobooks, accessibility, content creation
+### Speech to Text Workflow
+1. **Upload Audio File**: Select your audio file using the file picker
+2. **Automatic Processing**: The system uploads your file and begins transcription
+3. **Get Transcription**: Receive accurate text transcription of your audio content
+4. **Review Results**: View the transcribed text in the preview interface
 
-### 2. **Speech-to-Text Block**
-- **Purpose**: Convert spoken audio into accurate text transcriptions
-- **Input**: Audio file (any format)
+## Use Cases
+
+- **Content Creation**: Generate voiceovers for videos, podcasts, and presentations
+- **Accessibility**: Create audio versions of written content for visually impaired users
+- **Language Learning**: Practice pronunciation with native speaker voice samples
+- **Meeting Transcription**: Convert recorded meetings and interviews to text
+- **Automated Workflows**: Build pipelines that process audio content at scale
+
+## Technical Details
+
+### Text to Audio Task
+- **Input**: Text content, voice selection, output directory, optional custom filename
+- **Output**: MP3 audio file path
+- **Processing**: Uses Volcengine TTS API with retry logic and status polling
+
+### Speech to Text Task  
+- **Input**: Remote audio file URL
+- **Output**: Transcribed text string
+- **Processing**: Uses Volcengine STT API with automatic format detection
+
+### Speech to Text Subflow
+- **Input**: Local audio file
 - **Output**: Transcribed text
-- **Use Cases**: Meeting notes, interview transcription, subtitles, content analysis
+- **Processing**: Handles file upload to cloud storage followed by transcription
 
-## 🎯 Common Use Cases
+## Integration Example
 
-### Content Creators & Podcasters
-- Generate intro/outro voiceovers from scripts
-- Transcribe episodes for show notes and accessibility
-- Convert text content into professional audio
+The included demo workflow demonstrates a complete round-trip process:
+1. Convert text to audio using selected voice
+2. Preview the generated audio
+3. Upload audio to cloud storage
+4. Transcribe the audio back to text
+5. Display the final transcription for comparison
 
-### Business & Education
-- Convert presentations to audio format
-- Transcribe meetings and calls automatically
-- Create training materials with consistent voiceovers
-- Generate professional narration for educational content
-
-### Accessibility & Localization
-- Generate audio versions of written content
-- Create transcripts for video content
-- Produce multilingual audio content
-- Improve accessibility for diverse audiences
-
-## 🚀 Getting Started
-
-1. **Access the Platform**: Open Audio Lab in your browser
-2. **Choose Your Tools**: Browse the available processing blocks
-3. **Create Your Workflow**: Drag and drop blocks to build your audio processing pipeline
-4. **Upload Your Content**: Add your audio files or text content
-5. **Process & Download**: Run your workflow and download the results
-
-## 🎨 Example Workflows
-
-### Podcast Production Pipeline
-```
-Audio File → Speech-to-Text → Transcription
-```
-Result: Automatic transcription for show notes and accessibility
-
-### Content Creation Workflow
-```
-Script Text → Text-to-Speech → Final Audio
-```
-Result: Professional voiceover from written content
-
-### Voice Content Workflow
-```
-Text Input → Text-to-Speech → Audio Output
-```
-Result: High-quality voice content generation
-
-## 🔧 Technical Features
-
-- **AI-Powered Processing**: Advanced machine learning models for superior results
-- **Format Support**: Handles all common audio formats (MP3, WAV, M4A, etc.)
-- **Quality Preservation**: High-quality processing maintains audio fidelity
-- **Real-time Processing**: Fast, efficient algorithms for quick turnaround
-- **Visual Interface**: No technical expertise required - just drag, drop, and process
-
-## 💡 Why Choose Audio Lab?
-
-- **Professional Quality**: Industry-standard results without expensive software
-- **User-Friendly**: Intuitive interface designed for non-technical users
-- **Versatile**: Handles diverse audio processing needs in one platform
-- **Efficient**: Automated workflows save time and reduce manual work
-- **Accessible**: Web-based platform works on any device with internet access
-
-## 🎵 Ready to Transform Your Audio?
-
-Audio Lab makes professional audio processing accessible to everyone. Whether you're enhancing a single recording or building complex audio workflows, our AI-powered tools deliver professional results with minimal effort.
-
-Start processing your audio content today and discover the difference that professional-grade AI audio processing can make for your projects.
+This showcases the quality and accuracy of both text-to-speech and speech-to-text capabilities.

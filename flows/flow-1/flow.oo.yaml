@@ -1,6 +1,10 @@
+title: "%audio-lab-demo-text-to-speech-to-text%"
+description: "%demonstrates-complete-audio-processing-workflow-converts-text-to%"
+
 nodes:
   - node_id: text-to-audio#1
-    title: "%text-to-audio-1%"
+    title: "%convert-text-to-audio%"
+    description: "%converts-chinese-text-to-natural-speech-using-selected-voice-tim%"
     inputs_from:
       - handle: content
         value: 你好我是毛毛，是一只威尔士柯基
@@ -12,35 +16,38 @@ nodes:
         value: null
     task: self::text-to-audio
   - node_id: audio_preview#1
-    title: "%audio-preview-1%"
+    title: "%preview-generated-audio%"
+    description: "%plays-the-generated-audio-file-for-quality-verification%"
     inputs_from:
       - handle: audio_path
         from_node:
           - node_id: text-to-audio#1
             output_handle: audio_address
     task: oomol-preview::audio_preview
-  - node_id: speech-to-text#1
-    title: "%speech-to-text-1%"
-    inputs_from:
-      - handle: audio_url
-        value: /oomol-driver/oomol-storage/1758694056.mp3
-        from_node:
-          - node_id: upload-to-cloud#1
-            output_handle: remote_url
-    task: self::speech-to-text-core
-  - node_id: markdown_text_preview#1
-    title: "%markdown-preview-1%"
-    inputs_from:
-      - handle: text
-        from_node:
-          - node_id: speech-to-text#1
-            output_handle: text
-    task: oomol-preview::markdown_text_preview
   - node_id: upload-to-cloud#1
-    title: "%upload-file-to-cloud-1%"
+    title: "%upload-audio-to-cloud%"
+    description: "%uploads-the-generated-audio-file-to-cloud-storage-for-remote-acc%"
     inputs_from:
       - handle: file
         from_node:
           - node_id: text-to-audio#1
             output_handle: audio_address
     task: upload-to-cloud::upload-to-cloud
+  - node_id: speech-to-text#1
+    title: "%convert-audio-back-to-text%"
+    description: "%transcribes-the-uploaded-audio-file-back-to-text-for-verificatio%"
+    inputs_from:
+      - handle: audio_url
+        from_node:
+          - node_id: upload-to-cloud#1
+            output_handle: remote_url
+    task: self::speech-to-text-core
+  - node_id: markdown_text_preview#1
+    title: "%display-transcribed-text%"
+    description: "%shows-the-final-transcribed-text-result-for-comparison-with-orig%"
+    inputs_from:
+      - handle: text
+        from_node:
+          - node_id: speech-to-text#1
+            output_handle: text
+    task: oomol-preview::markdown_text_preview

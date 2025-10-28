@@ -1,18 +1,18 @@
 inputs_def:
   - handle: content
-    description: "%text-content-to-be-converted-into-speech%"
+    description: "%text-content-to-be-converted-into-speech-audio-supports-chinese%"
     json_schema:
       type: string
       ui:widget: text
   - handle: file_path
-    description: "%directory-path-where-the-generated-audio-file-will-be-saved%"
+    description: "%directory-path-where-the-generated-mp3-audio-file-will-be-saved%"
     json_schema:
       type: string
       ui:widget: dir
     value: /oomol-driver/oomol-storage
     nullable: false
   - handle: timbre
-    description: "%voice-timbre-selection-for-speech-generation%"
+    description: "%voice-timbre-selection-for-speech-generation-choose-from-5-diffe%"
     json_schema:
       enum:
         - zh_male_lengkugege_emo_v2_mars_bigtts
@@ -30,14 +30,14 @@ inputs_def:
     value: ICL_zh_female_wenrounvshen_239eff5e8ffa_tob
   - group: Optional
   - handle: name
-    description: "%custom-filename-for-the-generated-audio-optional%"
+    description: "%custom-filename-for-the-generated-audio-file-without-extension-i%"
     json_schema:
       type: string
     value:
     nullable: true
 outputs_def:
   - handle: audio_address
-    description: "File path of the generated audio file"
+    description: "%absolute-file-path-of-the-generated-mp3-audio-file-ready-for-pla%"
     json_schema:
       type: string
       ui:widget: file
@@ -48,6 +48,5 @@ executor:
   options:
     spawn: false
     entry: main.py
-title: "%text-to-audio%"
-icon: ":carbon:mobile-audio:"
-description: "%converts-written-text-into-natural-sounding-speech-audio-using-a%"
+title: "%text-to-audio2%"
+icon: ":carbon:mobile-a"

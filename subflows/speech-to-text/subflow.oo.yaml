@@ -19,7 +19,7 @@ nodes:
     task: upload-to-cloud::upload-to-cloud
 inputs_def:
   - handle: file
-    description: "%audio-file-to-be-transcribed-into-text%"
+    description: "%local-audio-file-to-be-transcribed-into-text-supports-mp3-wav-fl%"
     json_schema:
       type: string
       ui:widget: file
@@ -27,16 +27,16 @@ inputs_def:
     executor_name: nodejs
 outputs_def:
   - handle: text
+    description: "%accurate-text-transcription-of-the-spoken-audio-content-supports2%"
     json_schema:
       type: string
     nullable: false
-    description: Transcribed text from the audio input
     executor_name: python
 outputs_from:
   - handle: text
     from_node:
       - node_id: speech-to-text#2
         output_handle: text
-title: "%speech-to-text%"
+title: "%speech-to-text2%"
 icon: ":carbon:ibm-watson-speech-to-text:"
-description: "%this-subflow-converts-audio-files-to-text-using-speech-recogniti%"
+description: "%complete-workflow-that-converts-local-audio-files-to-text-using%"
