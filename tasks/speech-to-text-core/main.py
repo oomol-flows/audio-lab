@@ -80,12 +80,12 @@ def get_audio_format(audio_url: str) -> str:
 
     return format_map.get(extension, 'mp3')  # Default to mp3 if format not found
 
-def main(params: Inputs, context: Context) -> Outputs:
+async def main(params: Inputs, context: Context) -> Outputs:
     """
     Main function: Handles audio to text transcription task
     """
-    base_url = (context.oomol_llm_env.get("base_url") or "").rstrip("/")
-    api_key = context.oomol_llm_env.get("api_key")
+    base_url = "https://llm.oomol.com/"
+    api_key = await context.oomol_token()
     audio_url = params["audio_url"]
     if not base_url or not api_key:
         raise ValueError("Missing base_url or api_key in context.oomol_llm_env")

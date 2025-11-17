@@ -5,7 +5,7 @@ scripts:
     poetry install --no-root
 dependencies:
   oomol-preview: 0.2.0
-  upload-to-cloud: 0.0.3
+  upload-to-cloud: 0.0.5
 name: audio-lab
 repository: https://github.com/oomol-flows/audio-lab.git
 displayName: "%audio-lab%"

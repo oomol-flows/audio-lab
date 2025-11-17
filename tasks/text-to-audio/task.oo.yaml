@@ -4,6 +4,7 @@ inputs_def:
     json_schema:
       type: string
       ui:widget: text
+    value: 你好
   - handle: file_path
     description: "%directory-path-where-the-generated-mp3-audio-file-will-be-saved%"
     json_schema:
